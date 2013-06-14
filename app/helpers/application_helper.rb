@@ -78,14 +78,14 @@ module ApplicationHelper
 
   def format_content(text)
     begin
-      text = Rabel::LinkEmailParser.parse_url(Rabel::Base.h(text)) do |link|
-        Rabel::Base.smart_url(link)
+      text = Redmonster::LinkEmailParser.parse_url(Redmonster::Base.h(text)) do |link|
+        Redmonster::Base.smart_url(link)
       end
-      text = Rabel::LinkEmailParser.parse_email(text) do |address|
-        Rabel::Base.protect_at_symbol(address)
+      text = Redmonster::LinkEmailParser.parse_email(text) do |address|
+        Redmonster::Base.protect_at_symbol(address)
       end
 
-      nl_to_br(Rabel::Base.decode_symbols(Rabel::Base.make_mention_links(text))).html_safe
+      nl_to_br(Redmonster::Base.decode_symbols(Redmonster::Base.make_mention_links(text))).html_safe
     rescue
       h(text)
     end
@@ -97,8 +97,8 @@ module ApplicationHelper
 
   def parse_markdown(text)
     begin
-      nl_to_br(Rabel::Base.decode_symbols(
-        Rabel::Base.make_mention_links(
+      nl_to_br(Redmonster::Base.decode_symbols(
+        Redmonster::Base.make_mention_links(
           MarkdownConverter.convert(text)
         )
       )).html_safe

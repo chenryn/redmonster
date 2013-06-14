@@ -1,4 +1,4 @@
-module Rabel
+module Redmonster
   module ActiveCache
     def self.included(base)
       base.class_eval do
@@ -8,7 +8,7 @@ module Rabel
 
     def cached_assoc_collection(assoc, order, limit)
       ts  = send(assoc).select('updated_at').order('updated_at DESC').first.try(:updated_at)
-      return Rabel::Model::EMPTY_DATASET unless ts.present?
+      return Redmonster::Model::EMPTY_DATASET unless ts.present?
       total = send(assoc).count
       cache_keys = [
         self.class.model_name.collection,
@@ -25,11 +25,11 @@ module Rabel
       end
     end
 
-    def cached_assoc_pagination(assoc, current_page, per_page, order_column, order_type=Rabel::Model::ORDER_DESC)
-      raise ArgumentError, "Invalid order type: #{order_type}" unless Rabel::Model::ORDER_SPEC.include?(order_type)
+    def cached_assoc_pagination(assoc, current_page, per_page, order_column, order_type=Redmonster::Model::ORDER_DESC)
+      raise ArgumentError, "Invalid order type: #{order_type}" unless Redmonster::Model::ORDER_SPEC.include?(order_type)
 
       ts = send(assoc).select("updated_at").order("updated_at DESC").first.try(:updated_at)
-      return Kaminari.paginate_array(Rabel::Model::EMPTY_DATASET).page(0) unless ts.present?
+      return Kaminari.paginate_array(Redmonster::Model::EMPTY_DATASET).page(0) unless ts.present?
 
       total = send(assoc).count
       cache_keys = [
@@ -84,10 +84,10 @@ module Rabel
         result
       end
 
-      def cached_pagination(page, per_page, order_column, order_type=Rabel::Model::ORDER_DESC)
-        raise ArgumentError, "Invalid order type: #{order_type}" unless Rabel::Model::ORDER_SPEC.include?(order_type)
+      def cached_pagination(page, per_page, order_column, order_type=Redmonster::Model::ORDER_DESC)
+        raise ArgumentError, "Invalid order type: #{order_type}" unless Redmonster::Model::ORDER_SPEC.include?(order_type)
         ts = select(order_column).order("#{order_column} DESC").first.try(order_column.to_sym)
-        return Kaminari.paginate_array(Rabel::Model::EMPTY_DATASET).page(0) unless ts.present?
+        return Kaminari.paginate_array(Redmonster::Model::EMPTY_DATASET).page(0) unless ts.present?
 
         total = self.count
         cache_keys = [
@@ -112,7 +112,7 @@ module Rabel
 
       def cached_all(order_str='')
         ts = select('updated_at').order('updated_at DESC').first.try(:updated_at)
-        return Rabel::Model::EMPTY_DATASET unless ts.present?
+        return Redmonster::Model::EMPTY_DATASET unless ts.present?
         Rails.cache.fetch("#{self.model_name.collection}/all-#{ts}") do
           self.order(order_str).all
         end

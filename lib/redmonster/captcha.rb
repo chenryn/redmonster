@@ -1,4 +1,4 @@
-module Rabel
+module Redmonster
   class Captcha
     def self.random_code(length=4)
       chars = ('b'..'z').to_a - ['l', 'o'] + ('2'..'9').to_a

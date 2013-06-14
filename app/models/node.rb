@@ -1,7 +1,7 @@
 # encoding: utf-8
 class Node < ActiveRecord::Base
   include Sortable
-  include Rabel::ActiveCache
+  include Redmonster::ActiveCache
 
   has_many :node_topic_mappings, :dependent => :destroy
   has_many :topics, :through => :node_topic_mappings

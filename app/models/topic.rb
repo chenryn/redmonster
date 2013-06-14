@@ -1,7 +1,7 @@
 # encoding: utf-8
 class Topic < ActiveRecord::Base
   include Notifiable
-  include Rabel::ActiveCache
+  include Redmonster::ActiveCache
 
   DEFAULT_HIT = 0
   default_value_for :hit, DEFAULT_HIT
@@ -50,7 +50,7 @@ class Topic < ActiveRecord::Base
 
   def self.sticky_topics
     ts = select('updated_at').with_sticky(true).order('updated_at DESC').first.try(:updated_at)
-    return Rabel::Model::EMPTY_DATASET unless ts.present?
+    return Redmonster::Model::EMPTY_DATASET unless ts.present?
     count = with_sticky(true).count
     Rails.cache.fetch("topics/sticky/#{ts}-#{count}") do
       with_sticky(true).order('updated_at DESC').all
@@ -59,7 +59,7 @@ class Topic < ActiveRecord::Base
 
   def self.home_topics(num)
     ts = select('updated_at').order('updated_at DESC').first.try(:updated_at)
-    return Rabel::Model::EMPTY_DATASET unless ts.present?
+    return Redmonster::Model::EMPTY_DATASET unless ts.present?
     Rails.cache.fetch("topics/homepage/#{self.count}/#{num}-#{ts}") do
       with_sticky(false).latest_involved_topics(num)
     end
@@ -75,7 +75,7 @@ class Topic < ActiveRecord::Base
 
   def self.recent_topics(num)
     ts = select('updated_at').order('updated_at DESC').first.try(:updated_at)
-    return Rabel::Model::EMPTY_DATASET unless ts.present?
+    return Redmonster::Model::EMPTY_DATASET unless ts.present?
     Rails.cache.fetch("topics/recent/#{self.count}/#{num}-#{ts}") do
       order('involved_at DESC').limit(num).all
     end

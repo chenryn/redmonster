@@ -80,4 +80,5 @@ gem 'simple_form', '~> 2.0.4'
 gem 'foreman', '~> 0.61.0'
 gem 'thin', '~> 1.5.0'
 gem 'figaro'
+gem 'rename'
 

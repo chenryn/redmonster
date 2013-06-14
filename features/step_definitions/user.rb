@@ -9,7 +9,7 @@ Then /^it should display the registration form$/ do
 end
 
 When /^I provide the necessary registration infomation$/ do
-  fill_in 'user_nickname', :with => 'Rabel_1'
+  fill_in 'user_nickname', :with => 'Monster_1'
   fill_in 'user_password', :with => ENV['RABEL_TEST_DEFAULT_PASSWORD']
   fill_in 'user_password_confirmation', :with => ENV['RABEL_TEST_DEFAULT_PASSWORD']
   fill_in 'user_email', :with => 'rabel_1@rabel.com'

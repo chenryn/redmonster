@@ -1,11 +1,11 @@
-window.rabel = {}
-window.rabel.trackEvent = (category, action, label) ->
+window.redmonster = {}
+window.redmonster.trackEvent = (category, action, label) ->
   try
     _gaq.push ['_trackEvent', category, action, label]
   catch error
 
 jQuery ($) ->
-  window.rabel.sortable = (selector, update_path, options) ->
+  window.redmonster.sortable = (selector, update_path, options) ->
     options ||= {}
     settings =
       stop: (event, ui) ->
@@ -25,7 +25,7 @@ jQuery ($) ->
       query = search_input.val()
       return if query.length == 0
       domain = search_input.data('domain')
-      window.open window.rabel.search_engine_url + "site:#{domain}%20#{query}"
+      window.open window.redmonster.search_engine_url + "site:#{domain}%20#{query}"
       false
 
   focus_comment_box = ->
@@ -74,7 +74,7 @@ jQuery ($) ->
     $("a.preview").removeClass('current_label')
 
   $(".track_event").click ->
-    window.rabel.trackEvent($(this).data('category'), $(this).data('action'), $(this).data('label'))
+    window.redmonster.trackEvent($(this).data('category'), $(this).data('action'), $(this).data('label'))
 
   $(".hoverable").mouseenter ->
     $(this).find('.hover_action').fadeIn()

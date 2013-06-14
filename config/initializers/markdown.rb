@@ -1,6 +1,6 @@
 module Redcarpet
   module Render
-    class RabelTopicRender < HTML
+    class RedmonsterTopicRender < HTML
       def initialize(options={})
         super options.merge({:xhtml => true,
                             :filter_html => true,
@@ -12,9 +12,9 @@ module Redcarpet
           result = CodeRay.scan(code, language || :text).div(:tab_width => 2).sub("\n", '')
           i = result.rindex("\n")
           result = result[0..i-1] + result[i+1..-1]
-          Rabel::Base.protect_at_symbol result.gsub("\n", "<br/>")
+          Redmonster::Base.protect_at_symbol result.gsub("\n", "<br/>")
         rescue Exception => e
-          "~~~~#{Rabel::Base.h language}#{Rabel::Base.h code}"
+          "~~~~#{Redmonster::Base.h language}#{Redmonster::Base.h code}"
         end
       end
 
@@ -23,11 +23,11 @@ module Redcarpet
       end
 
       def block_html(raw_html)
-        Rabel::Base.h raw_html
+        Redmonster::Base.h raw_html
       end
 
       def header(text, header_level)
-        %(<h#{header_level}>#{Rabel::Base.h text}</h#{header_level}>)
+        %(<h#{header_level}>#{Redmonster::Base.h text}</h#{header_level}>)
       end
 
       def hrule()
@@ -66,14 +66,14 @@ module Redcarpet
       def autolink(link, link_type)
         case link_type
         when :url
-          Rabel::Base.smart_url(link)
+          Redmonster::Base.smart_url(link)
         when :email
-          Rabel::Base.email_link(Rabel::Base.protect_at_symbol(link))
+          Redmonster::Base.email_link(Redmonster::Base.protect_at_symbol(link))
         end
       end
 
       def codespan(code)
-        %(<code>#{Rabel::Base.protect_at_symbol(Rabel::Base.h(code))}</code>)
+        %(<code>#{Redmonster::Base.protect_at_symbol(Redmonster::Base.h(code))}</code>)
       end
 
       def double_emphasis(text)
@@ -94,11 +94,11 @@ module Redcarpet
 
       def link(link, title, content)
         content = link unless content.present?
-        Rabel::Base.external_link(content, link)
+        Redmonster::Base.external_link(content, link)
       end
 
       def raw_html(raw_html)
-        Rabel::Base.h raw_html
+        Redmonster::Base.h raw_html
       end
 
       def triple_emphasis(text)
@@ -130,7 +130,7 @@ class MarkdownConverter
   private
     def initialize
       @converter = Redcarpet::Markdown.new(
-        Redcarpet::Render::RabelTopicRender.new,
+        Redcarpet::Render::RedmonsterTopicRender.new,
         {
           :no_intra_emphasis => true,
           :fenced_code_blocks => true,

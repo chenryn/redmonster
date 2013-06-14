@@ -1,6 +1,6 @@
-Rabel
+Redmonster
 -----
-Rabel is released under the [MIT License](http://opensource.org/licenses/MIT).
+Redmonster is released under the [MIT License](http://opensource.org/licenses/MIT).
 
 Project Babel 2
 ---------------

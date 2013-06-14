@@ -27,8 +27,8 @@ class WelcomeController < ApplicationController
 
     respond_to do |format|
       format.gif {
-        session[:captcha] = Rabel::Captcha.random_code
-        send_data Rabel::Captcha.image(session[:captcha]), :type => 'image/gif', :disposition => 'ineline'
+        session[:captcha] = Redmonster::Captcha.random_code
+        send_data Redmonster::Captcha.image(session[:captcha]), :type => 'image/gif', :disposition => 'ineline'
       }
     end
   end

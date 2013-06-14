@@ -2,7 +2,7 @@
 
 require 'cgi'
 
-module Rabel
+module Redmonster
   module Base
     def self.make_mention_links(text)
       text.gsub(Notifiable::MENTION_REGEXP) do

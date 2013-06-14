@@ -13,7 +13,7 @@ Then /^it should display a settings icon$/ do
 end
 
 Then /^it should display the version number$/ do
-  steps %Q(Then I should see #{Rabel.version})
+  steps %Q(Then I should see #{Monster.version})
 end
 
 When /^I read the notifications$/ do

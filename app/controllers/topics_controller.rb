@@ -50,7 +50,7 @@ class TopicsController < ApplicationController
     @total_pages = (@total_comments * 1.0 / Siteconf.pagination_comments.to_i).ceil
     @current_page = params[:p].nil? ? @total_pages : params[:p].to_i
     @per_page = Siteconf.pagination_comments.to_i
-    @comments = @topic.cached_assoc_pagination(:comments, @current_page, @per_page, 'created_at', Rabel::Model::ORDER_ASC)
+    @comments = @topic.cached_assoc_pagination(:comments, @current_page, @per_page, 'created_at', Redmonster::Model::ORDER_ASC)
 
     @new_comment = @topic.comments.new
     @total_bookmarks = @topic.bookmarks.count

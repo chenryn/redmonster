@@ -1,4 +1,4 @@
-## Rabel
+## Redmonster
 
 基于 Ruby on Rails 框架开发的开源论坛系统。
 
@@ -12,5 +12,5 @@
 
 ## 致谢
 
-Rabel 论坛系统受到[Project Babel 2](https://github.com/livid/v2ex)启发，特此感谢。
+Redmonster 论坛系统受到[Project Babel 2](https://github.com/livid/v2ex)启发，特此感谢。
 

@@ -9,4 +9,4 @@
 //= require jquery.facebox
 //= require jquery_at_caret
 //= require jquery_smooth_scroll
-//= require rabel
+//= require redmonster

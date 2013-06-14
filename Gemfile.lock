@@ -169,6 +169,8 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     redcarpet (2.3.0)
+    rename (0.0.9)
+      rails (>= 3.0.0)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     rmagick (2.13.2)
@@ -277,6 +279,7 @@ DEPENDENCIES
   rails (= 3.2.13)
   rails-settings-cached (= 0.2.1)
   redcarpet
+  rename
   rmagick
   rspec
   rspec-rails (~> 2.12.0)

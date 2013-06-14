@@ -1,7 +1,7 @@
 # encoding: utf-8
 class Page < ActiveRecord::Base
   include Sortable
-  include Rabel::ActiveCache
+  include Redmonster::ActiveCache
 
   acts_as_list
 

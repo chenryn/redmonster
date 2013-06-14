@@ -1,14 +1,14 @@
 # encoding: utf-8
 
-Siteconf.defaults[:site_name] = 'Rabel' # 站点名称，如: Rabel
-Siteconf.defaults[:welcome_tip] = '欢迎访问<strong>Rabel</strong>' # 网站欢迎语, 支持html标签
+Siteconf.defaults[:site_name] = 'Redmonster' # 站点名称，如: Redmonster
+Siteconf.defaults[:welcome_tip] = '欢迎访问<strong>Redmonster</strong>' # 网站欢迎语, 支持html标签
 Siteconf.defaults[:ga_id] = '' # Google Analytics ID
 Siteconf.defaults[:default_search_engine] = 'google' # 默认搜索引擎，可从下面的搜索引擎列表中选择
-Siteconf.defaults[:seo_description] = 'Rabel - 新一代简洁社区软件' # SEO 描述
+Siteconf.defaults[:seo_description] = 'Redmonster - 新一代简洁社区软件' # SEO 描述
 Siteconf.defaults[:short_intro] = '新一代简洁社区软件' # 网站简短介绍, 显示在右侧边栏
-Siteconf.defaults[:full_intro] = '<p>Rabel 是一款简单的社区软件。</p><p>去掉所有繁杂功能，让社区交流变得简单。</p>'
-Siteconf.defaults[:footer] = '<p>&copy; 2012 Rabel</p>'
-Siteconf.defaults[:mobile_footer] = '&copy; 2012 Rabel'
+Siteconf.defaults[:full_intro] = '<p>Redmonster 是一款简单的社区软件。</p><p>去掉所有繁杂功能，让社区交流变得简单。</p>'
+Siteconf.defaults[:footer] = '<p>&copy; 2012 Redmonster</p>'
+Siteconf.defaults[:mobile_footer] = '&copy; 2012 Redmonster'
 Siteconf.defaults[:custom_css] = '' # 全局自定义CSS
 Siteconf.defaults[:custom_js] = '' # 全局自定义JavaScript
 Siteconf.defaults[:custom_head_tags] = '' # 自定义Head标签

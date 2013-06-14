@@ -20,7 +20,7 @@
     .pull-right
       = user_profile_avatar_link(topic_user, :large)
     %h1#topic_title
-      = Rabel::Base.make_mention_links(Rabel::Base.h(@topic.title)).html_safe
+      = Redmonster::Base.make_mention_links(Redmonster::Base.h(@topic.title)).html_safe
     %small.topic-meta
       By
       = user_profile_link(topic_user, :class => :dark)

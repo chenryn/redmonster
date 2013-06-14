@@ -1,4 +1,4 @@
-module Rabel
+module Redmonster
   module Model
     EMPTY_DATASET = []
     ORDER_ASC = 'ASC'

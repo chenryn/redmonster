@@ -1,4 +1,4 @@
-module Rabel
+module Redmonster
   module ControllerMatchers
     class ExtendTheController
       def initialize(expected)

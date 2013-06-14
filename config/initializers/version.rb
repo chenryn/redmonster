@@ -1,4 +1,4 @@
-module Rabel
+module Redmonster
   module VERSION #:nodoc:
     MAJOR = 2
     MINOR = 0

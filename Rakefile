@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Rabel::Application.load_tasks
+Redmonster::Application.load_tasks

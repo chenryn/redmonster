@@ -1,4 +1,4 @@
-module Rabel
+module Redmonster
   class LinkEmailParser
     AUTO_LINK_RE = %r{
         (?: ((?:ed2k|ftp|http|https|irc|mailto|news|gopher|nntp|telnet|webcal|xmpp|callto|feed|svn|urn|aim|rsync|tag|ssh|sftp|rtsp|afs):)// | www\. )
@@ -52,7 +52,7 @@ module Rabel
       text.gsub(AUTO_EMAIL_RE) do
         text = $&
         new_text = (block_given?) ? yield(text) : text
-        Rabel::Base.email_link(new_text)
+        Redmonster::Base.email_link(new_text)
       end
     end
 

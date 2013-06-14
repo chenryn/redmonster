@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-  include Rabel::ActiveCache
+  include Redmonster::ActiveCache
 
   belongs_to :user
   belongs_to :commentable, :polymorphic => true, :counter_cache => true
