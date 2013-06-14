@@ -1,0 +1,18 @@
+# required
+RABEL_HOST_NAME: 'example.com'
+RABEL_SYSTEM_EMAIL: 'hello@example.com'
+SECRET_TOKEN: ''
+SESSION_KEY: '_example_session'
+
+# memcache
+RABEL_MEMCACHED_SERVER: '127.0.0.1:11011'
+RABEL_MEMCACHED_USERNAME: ''
+RABEL_MEMCACHED_PASSWORD: ''
+RABEL_MEMCACHED_NAMESPACE: 'example'
+
+# upyun
+RABEL_UPYUN_SWITCH: 'off'
+RABEL_UPYUN_OP_NAME: 'example'
+RABEL_UPYUN_OP_PASSWORD: 'example'
+RABEL_UPYUN_BUCKET: 'example'
+RABEL_UPYUN_BUCKET_DOMAIN: 'example.b0.upaiyun.com'

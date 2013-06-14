@@ -17,10 +17,10 @@ class UpyunImageUploader < CarrierWave::Uploader::Base
   # storage :fog
   storage :upyun
 
-  self.upyun_username = Settings.upyun.operator_name
-  self.upyun_password = Settings.upyun.operator_password
-  self.upyun_bucket = Settings.upyun.bucket
-  self.upyun_bucket_domain = Settings.upyun.bucket_domain
+  self.upyun_username = Figaro.env.RABEL_UPYUN_OP_NAME
+  self.upyun_password = Figaro.env.RABEL_UPYUN_OP_PASSWORD
+  self.upyun_bucket = Figaro.env.RABEL_UPYUN_BUCKET
+  self.upyun_bucket_domain = Figaro.env.RABEL_UPYUN_BUCKET_DOMAIN
 
   process :resize_to_limit => [570, 0]
 

@@ -36,7 +36,7 @@ html
           .nav-collapse.collapse
             - if user_signed_in?
               form.navbar-search.pull-left
-                input#q.search-query.span2 type='text' name='q' maxlength=40 data-domain=Settings.canonical_host placeholder=t(:search)
+                input#q.search-query.span2 type='text' name='q' maxlength=40 data-domain=Figaro.env.RABEL_HOST_NAME placeholder=t(:search)
               ul.nav.pull-right
                 = nav_item current_user.nickname, member_path(url_encode(current_user.nickname))
                 = nav_item t(:account_settings), settings_path
@@ -44,7 +44,7 @@ html
                 li= link_to t(:sign_out), destroy_user_session_path, :method => :delete
             - else
               form.navbar-search.pull-right
-                input#q.search-query.span2 type='text' name='q' maxlength=40 data-domain=Settings.canonical_host placeholder=t(:search)
+                input#q.search-query.span2 type='text' name='q' maxlength=40 data-domain=Figaro.env.RABEL_HOST_NAME placeholder=t(:search)
 
     #wrap
       .container#page-main

@@ -100,8 +100,8 @@ Given /^I have logged in as (.*)$/ do |nickname|
   steps %Q(Given an user exists with nickname: #{nickname}) unless user.present?
   visit new_user_session_path
   fill_in 'user_nickname', :with => nickname
-  fill_in 'user_password', :with => Settings.default_password
-  click_button I18n.t(:sign_in)
+  fill_in 'user_password', :with => ENV['RABEL_TEST_DEFAULT_PASSWORD']
+  click_button '帐号登录'
 end
 
 Then /^I should not see (.*)$/ do |text|

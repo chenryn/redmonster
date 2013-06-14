@@ -6,7 +6,7 @@
       .control-group
         = label_tag 'settings[theme]', '设计风格', :class => 'control-label'
         .controls
-          = select_tag 'settings[theme]', options_for_select(Settings.themes.invert.to_a, @settings.theme)
+          = select_tag 'settings[theme]', options_for_select([['默认风格', :rabel]], @settings.theme)
 
       .control-group
         = label_tag 'settings[custom_logo]', '自定义Logo', :class => 'control-label'

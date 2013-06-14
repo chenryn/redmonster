@@ -12,7 +12,6 @@ describe Admin::NodesController do
     it "should show node creation form via ajax" do
       get :new, :format => :js
       should respond_with(:success)
-      should assign_to(:node)
     end
 
     it "should create node via ajax" do
@@ -20,7 +19,6 @@ describe Admin::NodesController do
         post :create, :node => {:key => 'rails', :name => 'Ruby on Rails', :introduction => 'Ruby on Rails is the most popular Web framework'}, :format => :js
       }.to change{Node.count}.by(1)
       should respond_with(:success)
-      should assign_to(:node)
     end
 
     it "should show node editing form via ajax" do
@@ -32,7 +30,6 @@ describe Admin::NodesController do
       new_name = 'Nginx 1.0'
       put :update, :id => @node.id, :node => {:name => new_name}, :format => :js
       should respond_with(:success)
-      should assign_to(:node)
       assigns(:node).name.should == new_name
     end
 
