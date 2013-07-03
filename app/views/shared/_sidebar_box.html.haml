@@ -32,3 +32,11 @@
 - if Siteconf.show_community_stats?
   - content_for :rightbar do
     = render 'shared/community_stats'
+
+- if Node.any?
+  .box
+    .box-header
+      节点导航
+    .inner
+      = render Node.order(Node.default_order_str).all
+

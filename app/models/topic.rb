@@ -65,6 +65,10 @@ class Topic < ActiveRecord::Base
     end
   end
 
+  def self.popular(num)
+    order('comments_count DESC').limit(num).all
+  end
+
   def self.with_sticky(sticky)
     where(:sticky => sticky)
   end

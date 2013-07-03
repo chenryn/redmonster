@@ -13,6 +13,18 @@ class WelcomeController < ApplicationController
     end
   end
 
+  def popular
+    @topics = Topic.popular(Siteconf::HOMEPAGE_TOPICS)
+    @canonical_path = '/'
+    @full_title = '热门话题'
+    @seo_description = Siteconf.seo_description
+    @current_nav_item = t(:popular)
+
+    respond_to do |format|
+      format.html 
+    end
+  end
+
   def goodbye
     @title = '登出'
 
