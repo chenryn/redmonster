@@ -16,6 +16,7 @@ Redmonster::Application.routes.draw do
   get 'my/following' => 'users#my_following', :as => :my_following
   get 'page/:key' => 'pages#show', :as => :page
   get 'goodbye' => 'welcome#goodbye'
+  get 'popular' => 'welcome#popular'
   get 'captcha' => 'welcome#captcha'
   get 'sitemap' => 'welcome#sitemap'
 
