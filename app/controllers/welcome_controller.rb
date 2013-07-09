@@ -16,9 +16,9 @@ class WelcomeController < ApplicationController
   def popular
     @topics = Topic.popular(Siteconf::HOMEPAGE_TOPICS)
     @canonical_path = '/'
-    @full_title = site_intro
+    @full_title = '热门话题'
     @seo_description = Siteconf.seo_description
-    @current_nav_item = t(:homepage)
+    @current_nav_item = t(:popular)
 
     respond_to do |format|
       format.html 
