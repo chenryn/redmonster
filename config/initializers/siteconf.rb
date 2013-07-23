@@ -23,4 +23,4 @@ Siteconf.defaults[:allow_markdown_in_comments] = 'off'
 Siteconf.defaults[:allow_markdown_in_pages] = 'on'
 Siteconf.defaults[:topic_editable_period_str] = '5'
 Siteconf.defaults[:reward_title] = '银币'
-
+Siteconf.defaults[:block_anonymous_node] = 'meizhi'
