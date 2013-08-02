@@ -28,6 +28,7 @@ html
           ul.nav
             = nav_item(t(:homepage), root_path)
             = nav_item(t(:popular), popular_path)
+            = nav_item('博客', 'http://blogs.perl-china.com/')
             - if user_signed_in?
               - if current_user.can_manage_site?
                 = nav_item t(:dashboard), admin_root_path
