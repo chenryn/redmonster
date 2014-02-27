@@ -12,7 +12,7 @@ class Node < ActiveRecord::Base
   validates :key, :uniqueness => true, :format => {:with => /[a-zA-Z0-9_-]+/, :message => I18n.t('tips.node_key_format')}
   validate :node_key_should_not_contain_slash
 
-  attr_accessible :name, :key, :custom_css, :custom_html, :introduction, :position, :quiet
+  attr_accessible :name, :key, :custom_css, :custom_html, :introduction, :position, :quiet, :topics_count
 
   def can_delete?
     self.topics.count == 0

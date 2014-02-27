@@ -108,12 +108,7 @@ class Topic < ActiveRecord::Base
 
     def incr_node_topics_count
       self.node_ids.each do |node_id|
-        Node.where(id: node_id)
-            .update_all(topics_count: 1 + Node.select('topics_count')
-                                              .where(id: node_id)
-                                              .first
-                                              .topics_count
-            )
+        Node.where(id: node_id).update_all(topics_count: 1 + Node.select('topics_count').where(id: node_id).first.topics_count)
       end
     end
 

@@ -7,7 +7,7 @@
       %td{:width => 10}
       %td{:width => :auto, :valign => :top}
         .fr
-          = link_to "#{comment.praise_count} 赞", praise_comment_path(comment)
+          = link_to "#{comment.attributes} 赞", praise_comment_path(comment)
           - if user_signed_in? and current_user.can_manage_site?
             %small.hover_action
               = link_to 'EDIT', edit_comment_path(comment), :class => 'rabel edit', :remote => :true

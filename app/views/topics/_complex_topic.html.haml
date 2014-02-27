@@ -1,6 +1,6 @@
 - comments_count = topic.comments_count
 - last_replied_by = topic.last_replied_by
-- unless topic.nodes.any? { |node| node.key.eql?('meizhi') } && !user_signed_in?
+- unless topic.nodes.any? { |node| node.key.eql?(Siteconf.block_anonymous_node) } && !user_signed_in?
   .cell.topic{:class => topic_user.can_manage_site? ? 'admin' : ''}
     .avatar.pull-left
       = user_profile_avatar_link(topic_user, :medium)
