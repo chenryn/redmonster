@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130101024225) do
+ActiveRecord::Schema.define(:version => 20140226000000) do
 
   create_table "accounts", :force => true do |t|
     t.integer  "user_id"
@@ -150,9 +150,9 @@ ActiveRecord::Schema.define(:version => 20130101024225) do
     t.integer  "user_id",       :default => 0
     t.integer  "amount",        :default => 0
     t.integer  "balance",       :default => 0
-    t.text     "reason"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.text     "reason",        :default => ""
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "settings", :force => true do |t|
