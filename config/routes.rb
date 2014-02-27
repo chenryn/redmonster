@@ -34,7 +34,11 @@ Redmonster::Application.routes.draw do
     end
   end
 
-  resources :comments, :bookmarks, :upyun_images
+  #resources :comments, :bookmarks, :upyun_images
+  resources :bookmarks, :upyun_images
+  resources :comments do
+    get :praise, :on => :member
+  end
 
   resources :notifications do
     get :read, :on => :member

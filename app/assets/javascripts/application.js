@@ -10,3 +10,5 @@
 //= require jquery_at_caret
 //= require jquery_smooth_scroll
 //= require redmonster
+//= require run_prettify
+//= require prettify

@@ -18,6 +18,7 @@ class Notification < ActiveRecord::Base
     nf.user = user
     nf.action_user = action_user
     nf.save
+    UserMailer.notify(user.email, content).deliver
   end
 
   def action_info_prefix

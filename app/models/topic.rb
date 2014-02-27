@@ -26,6 +26,7 @@ class Topic < ActiveRecord::Base
   attr_accessible :title, :content, :node_ids
   attr_accessible :title, :content, :node_ids, :comments_closed, :sticky, :as => :admin
 
+  after_create :incr_node_topics_count
   after_create :send_notifications
 
   def last_comment
@@ -104,6 +105,17 @@ class Topic < ActiveRecord::Base
   end
 
   private
+
+    def incr_node_topics_count
+      self.node_ids.each do |node_id|
+        Node.where(id: node_id)
+            .update_all(topics_count: 1 + Node.select('topics_count')
+                                              .where(id: node_id)
+                                              .first
+                                              .topics_count
+            )
+      end
+    end
 
     def send_notifications
       mentioned_users.each do |user|

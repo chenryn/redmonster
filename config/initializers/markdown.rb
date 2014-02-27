@@ -12,7 +12,7 @@ module Redcarpet
           result = CodeRay.scan(code, language || :text).div(:tab_width => 2).sub("\n", '')
           i = result.rindex("\n")
           result = result[0..i-1] + result[i+1..-1]
-          Redmonster::Base.protect_at_symbol result.gsub("\n", "<br/>")
+          Redmonster::Base.protect_at_symbol result.gsub("\n", "<br/>").gsub("<pre>", "<pre class=\"prettyprint lang-perl\">")
         rescue Exception => e
           "~~~~#{Redmonster::Base.h language}#{Redmonster::Base.h code}"
         end

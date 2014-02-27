@@ -4,7 +4,7 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :commentable, :polymorphic => true, :counter_cache => true
 
-  validates :user_id, :commentable_id, :commentable_type, :content, :presence => true
+  validates :user_id, :commentable_id, :commentable_type, :content, :praise_count, :presence => true
   attr_accessible :content
 
   after_create :touch_parent_model

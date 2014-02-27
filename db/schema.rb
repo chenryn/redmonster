@@ -69,6 +69,7 @@ ActiveRecord::Schema.define(:version => 20130101024225) do
     t.datetime "created_at",                       :null => false
     t.datetime "updated_at",                       :null => false
     t.string   "posting_device",   :default => "", :null => false
+    t.integer  "praise_count",     :default => 0,  :null => false
   end
 
   add_index "comments", ["commentable_id", "commentable_type"], :name => "index_comments_on_commentable_id_and_commentable_type"

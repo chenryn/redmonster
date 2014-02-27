@@ -19,6 +19,16 @@ class CommentsController < ApplicationController
     end
   end
 
+  def praise
+    respond_to do |format|
+      if @comment.increment!(:praise_count)
+      # ActiveRecord::Base.connection.execute("UPDATE comments SET praise_count = praise_count + 1 WHERE comments.id = #{@comment.id}")
+      else
+        render :json => :error, :status => :unprocessable_entity
+      end
+    end
+  end
+
   def update
     respond_to do |format|
       if @comment.update_attributes(params[:comment])
